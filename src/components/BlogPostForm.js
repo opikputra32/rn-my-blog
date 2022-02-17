@@ -23,6 +23,13 @@ const BlogPostForm = ({ onSubmit, initialValue }) => {
   );
 };
 
+BlogPostForm.defaultProps = {
+  initialValue: {
+    title: "",
+    content: "",
+  },
+};
+
 const styles = StyleSheet.create({
   container: {
     marginHorizontal: 10,
