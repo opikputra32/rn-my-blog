@@ -10,7 +10,13 @@ const EditScreen = ({ navigation }) => {
     (blogPost) => blogPost.id === navigation.getParam("id")
   );
 
-  return <BlogPostForm />;
+  return (
+    <BlogPostForm
+      onSubmit={(title, content) => {
+        console.log(title, content);
+      }}
+    />
+  );
 };
 
 const styles = StyleSheet.create({});
