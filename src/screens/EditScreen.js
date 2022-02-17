@@ -4,17 +4,16 @@ import { Context as blogContext } from "../context/BlogContext";
 import BlogPostForm from "../components/BlogPostForm";
 
 const EditScreen = ({ navigation }) => {
-  const { state } = useContext(blogContext);
+  const id = navigation.getParam("id");
+  const { state, editBlogPost } = useContext(blogContext);
 
-  const blogPost = state.find(
-    (blogPost) => blogPost.id === navigation.getParam("id")
-  );
+  const blogPost = state.find((blogPost) => blogPost.id === id);
 
   return (
     <BlogPostForm
       initialValue={{ title: blogPost.title, content: blogPost.content }}
       onSubmit={(title, content) => {
-        console.log(title, content);
+        editBlogPost(id, title, content);
       }}
     />
   );
